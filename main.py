@@ -23,4 +23,5 @@ async def get_transcript(video_id: str):
         transcript_text = " ".join([entry["text"] for entry in transcript])
         return {"text": transcript_text, "status": "success"}
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        return {"text": "", "status": "error", "detail": str(e)}
+
