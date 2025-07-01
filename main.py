@@ -12,6 +12,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "YouTube Transcript API is running."}
+
 @app.get("/get_transcript")
 async def get_transcript(video_id: str):
     try:
